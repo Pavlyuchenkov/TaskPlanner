@@ -1,0 +1,26 @@
+﻿@model TaskPlanner.Models.Task
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        <p>Ща давай введи чо там по задачам</p>
+        @using (Html.BeginForm())
+        {
+            <p>Task ID: @Html.TextBoxFor(x => x.TaskId)</p>
+            <p>Task Name: @Html.TextBoxFor(x => x.TaskName)</p>
+            <p></p>
+            <input type="submit" value="Сохранить" />
+        }
+    </div>
+</body>
+</html>
