@@ -1,4 +1,4 @@
-﻿@model List<TaskPlanner.Models.Task>
+﻿@model IEnumerable<TaskPlanner.Models.Task>
 
 @{
     ViewBag.Title = "Index";
@@ -43,6 +43,17 @@
                             <th scope="col" class="func" >@await Html.PartialAsync("_Function") &#10004; &#10006;</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach (var b in Model)
+                        {
+                            <tr>
+                                <td>@b.TaskId</td>
+                                <td>!</td>
+                                <td>@b.TaskName</td>
+                                <td>!</td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
             </div>
             <div class="col-md-6">
@@ -58,6 +69,9 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div>
+        <a asp-action="Create">создать эт самое</a>
     </div>
     <div class="text-center">
         @await Html.PartialAsync("_GetMessage")

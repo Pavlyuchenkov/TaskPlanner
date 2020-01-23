@@ -6,32 +6,36 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TaskPlanner.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TaskPlanner.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private TaskContext db;
+        public HomeController(TaskContext context)
+        {
+            db = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await db.Tasks.ToListAsync());
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
 
-        [HttpGet]
-        public ViewResult Create()
-        {
-            return View();
-        }
         [HttpPost]
-        public ViewResult Create(Models.Task task)
+        public async Task<IActionResult> Create(Models.Task task)
         {
-            List<Models.Task> tasks = new List<Models.Task>
-            {
-                new Models.Task{TaskId = task.TaskId, TaskTime = DateTime.Now, TaskName = task.TaskName}
-            };
-            tasks.Add(task);
-            return View("Index", tasks);
+            db.Tasks.Add(task);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
+        //----------------------------------------------------------------
         public ActionResult GetMessage()
         {
             return PartialView("_GetMessage");
