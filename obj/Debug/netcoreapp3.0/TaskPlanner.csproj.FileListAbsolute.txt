@@ -12,7 +12,6 @@ C:\Users\Vladimir\source\repos\TaskPlanner\bin\Debug\netcoreapp3.0\TaskPlanner.V
 C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\TaskPlanner.csprojAssemblyReference.cache
 C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\staticwebassets\TaskPlanner.StaticWebAssets.Manifest.cache
 C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\staticwebassets\TaskPlanner.StaticWebAssets.xml
-C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\TaskPlanner.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\TaskPlanner.RazorAssemblyInfo.cache
 C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\TaskPlanner.RazorAssemblyInfo.cs
 C:\Users\Vladimir\source\repos\TaskPlanner\obj\Debug\netcoreapp3.0\TaskPlanner.AssemblyInfoInputs.cache
