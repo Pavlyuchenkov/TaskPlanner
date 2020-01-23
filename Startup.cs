@@ -26,8 +26,7 @@ namespace TaskPlanner
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<TaskContext>(options =>
-                options.UseSqlServer(connection));
+            services.AddDbContext<TaskContext>(options => options.UseSqlServer(connection));
             services.AddControllersWithViews();
         }
 
