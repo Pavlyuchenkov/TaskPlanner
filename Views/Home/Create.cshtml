@@ -14,13 +14,17 @@
 <body>
     <div>
         <form asp-action="create" asp-controller="home">
-            @*<div class="form-group">
+            <div class="form-group">
                 <label asp-for="TaskId" class="control-label">Id задачи: </label>
-                <input type="text" asp-for="TaskId" class="form-control" />
-            </div>*@
+                <input type="datetime" asp-for="TaskId" class="form-control" />
+            </div>
             <div class="form-group">
                 <label asp-for="TaskName" class="control-label">Название задачи: </label>
-                <input type="number" asp-for="TaskName" class="form-control" />
+                <input type="text" asp-for="TaskName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskDescrip" class="control-label">Описание задачи задачи: </label>
+                <input type="text" asp-for="TaskDescrip" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Отправить" class="btn btn-default" />

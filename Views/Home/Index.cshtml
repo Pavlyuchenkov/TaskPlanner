@@ -40,7 +40,7 @@
                             <th scope="col" @*style="display: none"*@>id</th>
                             <th scope="col">Время</th>
                             <th scope="col">Задача</th>
-                            <th scope="col" class="func" >@await Html.PartialAsync("_Function") &#10004; &#10006;</th>
+                            <th scope="col" class="func" > Функции</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,9 +48,9 @@
                         {
                             <tr>
                                 <td>@b.TaskId</td>
-                                <td>!</td>
+                                <td>@b.TaskTime</td>
                                 <td>@b.TaskName</td>
-                                <td>!</td>
+                                <td>@await Html.PartialAsync("_Function") &#10004; &#10006;</td>
                             </tr>
                         }
                     </tbody>
@@ -75,6 +75,9 @@
     </div>
     <div class="text-center">
         @await Html.PartialAsync("_GetMessage")
+    </div>
+    <div>
+        @DateTime.Now
     </div>
 
 </body>
