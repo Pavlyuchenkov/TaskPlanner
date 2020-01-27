@@ -36,7 +36,7 @@ namespace TaskPlanner.Controllers
         }
 
         //----------------------------------------------------------------
-        public ActionResult GetMessage()
+        public IActionResult GetMessage()
         {
             return PartialView("_GetMessage");
         }

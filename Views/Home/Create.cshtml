@@ -14,7 +14,7 @@
 <body>
     <div>
         <form asp-action="create" asp-controller="home">
-            <label asp-for="TaskTime" class="col-md-4 control-label">@Html.DisplayFor(Model => Model.TaskTime)</label>
+            <label asp-for="TaskTime" class="col-md-4 control-label" style="display:none">@Html.DisplayFor(Model => Model.TaskTime)</label>
             <div class="form-group">
                 <label asp-for="TaskName" class="control-label">Название задачи: </label>
                 <input type="text" asp-for="TaskName" class="form-control" />
