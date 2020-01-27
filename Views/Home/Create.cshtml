@@ -14,10 +14,7 @@
 <body>
     <div>
         <form asp-action="create" asp-controller="home">
-            @*<div class="form-group">
-                <label asp-for="TaskId" class="control-label">Id задачи: </label>
-                <input type="datetime" asp-for="TaskId" class="form-control" />
-            </div>*@
+            <label asp-for="TaskTime" class="col-md-4 control-label">@Html.DisplayFor(Model => Model.TaskTime)</label>
             <div class="form-group">
                 <label asp-for="TaskName" class="control-label">Название задачи: </label>
                 <input type="text" asp-for="TaskName" class="form-control" />
@@ -31,5 +28,8 @@
             </div>
         </form>
     </div>
+    <script>
+        var timepicker = $("#timepicker").data("kendoTimePicker");
+    </script>
 </body>
 </html>

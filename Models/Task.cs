@@ -12,6 +12,10 @@ namespace TaskPlanner.Models
         public string TaskDescrip { get; set; }
         //время постановки задачи
         public DateTime TaskTime { get; set; } //used
+        public Task()
+        {
+            TaskTime = DateTime.Now;
+        }
         //время выполнения задачи
         public DateTime EndTime { get; set; }
         //время затраченное на выполнение задачи
