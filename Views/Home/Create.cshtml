@@ -14,10 +14,10 @@
 <body>
     <div>
         <form asp-action="create" asp-controller="home">
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="TaskId" class="control-label">Id задачи: </label>
                 <input type="datetime" asp-for="TaskId" class="form-control" />
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="TaskName" class="control-label">Название задачи: </label>
                 <input type="text" asp-for="TaskName" class="form-control" />
