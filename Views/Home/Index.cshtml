@@ -13,12 +13,12 @@
 </head>
 <body>
     @*<div class="container-fluid">
-        <div class="row">
-            <div style="text-align:center" class="col">
-                <h2>Планировщик задач</h2>
+            <div class="row">
+                <div style="text-align:center" class="col">
+                    <h2>Планировщик задач</h2>
+                </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
 
     <div class="container-fluid">
         <div class="row">
@@ -40,7 +40,7 @@
                             <th scope="col" @*style="display: none"*@>id</th>
                             <th scope="col">Время</th>
                             <th scope="col">Задача</th>
-                            <th scope="col" class="func" > Функции</th>
+                            <th scope="col" class="func"> Функции</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,8 +49,11 @@
                             <tr>
                                 <td>@b.TaskId</td>
                                 <td>@b.TaskTime</td>
-                                <td>@b.TaskName</td>
-                                <td>@await Html.PartialAsync("_Function") &#10004; &#10006;</td>
+                                <td><a asp-action="Details" asp-controller="Home" asp-route-id="@b.TaskId" title="Нажмите что бы узнать подробности">@b.TaskName</a></td>
+                                <td style="text-align: center">
+                                    <a asp-action="Edit" asp-controller="Home" asp-route-id="@b.TaskId" title="Изменить">&#9998;</a>
+                                    <a asp-action="Delete" asp-controller="Home" asp-route-id="@b.TaskId" title="Удалить">&#10006;</a>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -60,7 +63,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr style="text-align: center">
-                            <th scope="col" @*style="display: none"*@>id</th>
+                            <th scope="col">id</th>
                             <th scope="col">Задача</th>
                             <th scope="col">Время</th>
                             <th scope="col">Тайминг</th>
@@ -70,11 +73,8 @@
             </div>
         </div>
     </div>
-    <div>
-        <a asp-action="Create">создать эт самое</a>
-    </div>
-    <div class="text-center">
-        @await Html.PartialAsync("_GetMessage")
+    <div style="text-align:center">
+        <a asp-action="Create">Создать задачу</a>
     </div>
 </body>
 </html>

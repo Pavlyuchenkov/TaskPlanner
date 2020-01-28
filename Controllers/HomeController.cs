@@ -22,6 +22,8 @@ namespace TaskPlanner.Controllers
             return View(await db.Tasks.ToListAsync());
         }
 
+        //Create
+        #region
         public IActionResult Create()
         {
             return View();
@@ -34,13 +36,73 @@ namespace TaskPlanner.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        #endregion
 
-        //----------------------------------------------------------------
-        public IActionResult GetMessage()
+        //Details
+        #region
+        public async Task<IActionResult> Details(int? id)
         {
-            return PartialView("_GetMessage");
+            if (id != null)
+            {
+                Models.Task task = await db.Tasks.FirstOrDefaultAsync(p => p.TaskId == id);
+                if (task != null)
+                    return View(task);
+            }
+            return NotFound();
+        }
+        #endregion
+
+        //Edit
+        #region
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id != null)
+            {
+                Models.Task task = await db.Tasks.FirstOrDefaultAsync(p => p.TaskId == id);
+                if (task != null)
+                    return View(task);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Models.Task task)
+        {
+            db.Tasks.Update(task);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        #endregion
+
+        //Delete
+        #region
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(int? id)
+        {
+            if (id != null)
+            {
+                Models.Task task = await db.Tasks.FirstOrDefaultAsync(p => p.TaskId == id);
+                if (task != null)
+                    return View(task);
+            }
+            return NotFound();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id != null)
+            {
+                Models.Task  task = new Models.Task { TaskId = id.Value };
+                db.Entry(task).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
+        #endregion
+
+        //------------------------------------------------------------------------------------------
         public IActionResult Privacy()
         {
             return View();

@@ -1,0 +1,12 @@
+﻿@model TaskPlanner.Models.Task
+@{ 
+    ViewBag.Title = Model.TaskName;
+}
+
+<h2>Задача: @Model.TaskName</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Описание задачи: </dt>
+        <dd>@Model.TaskDescrip</dd>
+    </dl>
+</div>
