@@ -102,6 +102,41 @@ namespace TaskPlanner.Controllers
         }
         #endregion
 
+        //Done
+        #region
+        [HttpGet]
+        [ActionName("Done")]
+        public async Task<IActionResult> ConfirmDone(int? id)
+        {
+            if (id != null)
+            {
+                Models.Task task = await db.Tasks.FirstOrDefaultAsync(p => p.TaskId == id);
+                if (task != null)
+                    return View(task);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Done(int? id)
+        {
+            if (id != null)
+            {
+                Models.Task task = new Models.Task { TaskId = id.Value };
+                db.Entry(task).State = EntityState.Added;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
+
+        // view Complete
+        public async Task<IActionResult> Complete()
+        {
+            return View(await db.Tasks.ToListAsync());
+        }
+        #endregion
+
         //------------------------------------------------------------------------------------------
         public IActionResult Privacy()
         {

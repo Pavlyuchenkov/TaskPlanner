@@ -1,0 +1,23 @@
+﻿@model IEnumerable<TaskPlanner.Models.Task>
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="text-align: center">
+            <th scope="col">id</th>
+            <th scope="col">Задача</th>
+            <th scope="col">Время</th>
+            <th scope="col">Тайминг</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.TaskId</td>
+                <td><a asp-action="Details" asp-controller="Home" asp-route-id="@d.TaskId" title="Нажмите что бы узнать подробности">@d.TaskName</a></td>
+                <td>@d.EndTime</td>
+                <td>@*@d.DifTime*@лол</td>
+            </tr>
+        }
+    </tbody>
+</table>

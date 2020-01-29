@@ -1,0 +1,30 @@
+﻿@model TaskPlanner.Models.Task
+@{
+    ViewBag.Title = "Выполнение задачи задачи";
+}
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt>Название задачи</dt>
+            <dd>
+                @Html.DisplayFor(model => model.TaskName)
+            </dd>
+
+            <dt>Описание задачи</dt>
+            <dd>
+                @Html.DisplayFor(model => model.TaskDescrip)
+            </dd>
+        </dl>
+
+        <form asp-action="done" asp-controller="home">
+            <label asp-for="EndTime" class="col-md-4 control-label" style="display:none">@Html.DisplayFor(Model => Model.EndTime)</label>
+        </form>
+
+            <div>
+                <form asp-controller="Home" asp-action="Delete" method="post">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default" value="Выполнить" />
+                    </div>
+                </form>
+            </div>
+    </div>

@@ -51,8 +51,11 @@
                                 <td>@b.TaskTime</td>
                                 <td><a asp-action="Details" asp-controller="Home" asp-route-id="@b.TaskId" title="Нажмите что бы узнать подробности">@b.TaskName</a></td>
                                 <td style="text-align: center">
-                                    <a asp-action="Edit" asp-controller="Home" asp-route-id="@b.TaskId" title="Изменить">&#9998;</a>
-                                    <a asp-action="Delete" asp-controller="Home" asp-route-id="@b.TaskId" title="Удалить">&#10006;</a>
+                                    <div>
+                                        <a asp-action="Edit" asp-controller="Home" asp-route-id="@b.TaskId" title="Изменить">&#9998;</a>
+                                        <a asp-action="Done" asp-controller="Home" asp-route-id="@b.TaskId" title="Выполнить">&#10004;</a>
+                                        <a asp-action="Delete" asp-controller="Home" asp-route-id="@b.TaskId" title="Удалить">&#10006;</a>
+                                    </div>
                                 </td>
                             </tr>
                         }
@@ -60,16 +63,28 @@
                 </table>
             </div>
             <div class="col-md-6">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr style="text-align: center">
-                            <th scope="col">id</th>
-                            <th scope="col">Задача</th>
-                            <th scope="col">Время</th>
-                            <th scope="col">Тайминг</th>
-                        </tr>
-                    </thead>
-                </table>
+                @await Html.PartialAsync("_Complete")
+                @*<table class="table table-bordered">
+            <thead>
+                <tr style="text-align: center">
+                    <th scope="col">id</th>
+                    <th scope="col">Задача</th>
+                    <th scope="col">Время</th>
+                    <th scope="col">Тайминг</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    <tr>
+                        <td>@d.TaskId</td>
+                        <td>@d.TaskName</td>
+                        <td>@d.EndTime</td>
+                        <td>@d.DifTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@
             </div>
         </div>
     </div>
